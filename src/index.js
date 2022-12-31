@@ -1,46 +1,35 @@
-let now = new Date();
+function formatDate(timestamp) {
+  let now = new Date(timestamp);
 
-let currentDate = document.querySelector("#current-date");
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
+  let day = days[now.getDay()];
 
-let day = days[now.getDay()];
+  let date = now.getDate();
 
-let date = now.getDate();
+  let months = [
+    "Jan",
+    "Feb",
+    "March",
+    "Apr",
+    "May",
+    "June",
+    "July",
+    "Aug",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  let month = months[now.getMonth()];
 
-let months = [
-  "Jan",
-  "Feb",
-  "March",
-  "Apr",
-  "May",
-  "June",
-  "July",
-  "Aug",
-  "Sept",
-  "Oct",
-  "Nov",
-  "Dec",
-];
-let month = months[now.getMonth()];
+  let hour = now.getHours();
+  let minutes = now.getMinutes();
+  minutes = minutes <= 9 ? "0" + minutes : minutes;
+  hour = hour <= 9 ? "0" + hour : hour;
 
-currentDate.innerHTML = `${day} ${date} ${month}`;
-
-let currentTime = document.querySelector("#current-time");
-let hour = now.getHours();
-let minutes = now.getMinutes();
-minutes = minutes <= 9 ? "0" + minutes : minutes;
-hour = hour <= 9 ? "0" + hour : hour;
-
-currentTime.innerHTML = `${hour}:${minutes}`;
+  return `${day} ${date} ${month} ${hour}:${minutes}`;
+}
 
 function showWeather(response) {
   console.log(response);
@@ -55,11 +44,14 @@ function showWeather(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.condition.description;
+  document.querySelector("#current-date").innerHTML = formatDate(
+    response.data.time * 1000
+  );
 }
 
 function searchCity(city) {
   let apiKey = "15353af8tb5a96838601b6762eoe80e4";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   let cityInput = document.querySelector("#enter-city");
   if (cityInput.value) {
     cityInput.value = "";
@@ -81,7 +73,7 @@ function showPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let apiKey = "15353af8tb5a96838601b6762eoe80e4";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
 }
 
