@@ -20,13 +20,13 @@ a:hover {
 .weather-app {
   border: 2px solid #000;
   border-radius: 20px;
-  max-width: 800px;
+  max-width: 900px;
   display: block;
   margin: 100px auto;
   padding: 40px;
   font-family: "Mali", cursive;
   background-image: url("../images/cloud-background.jpg");
-  background-size: 800px;
+  background-size: 900px;
 }
 
 .forecast {
@@ -35,7 +35,7 @@ a:hover {
 .today-symbol {
   width: 120px;
   display: block;
-  margin: 15px auto;
+  margin: 0 auto;
 }
 
 .description {
@@ -46,9 +46,6 @@ a:hover {
   text-transform: capitalize;
 }
 
-.future-weather {
-  padding: 50px 0 0 0;
-}
 .weather-symbol {
   width: 40px;
   display: block;
@@ -60,6 +57,10 @@ a:hover {
   position: relative;
   top: -20px;
   left: -10px;
+}
+
+.future-weather {
+  padding: 50px 0 0 0;
 }
 .footer {
   font-size: 12px;

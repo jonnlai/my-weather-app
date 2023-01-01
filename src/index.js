@@ -44,6 +44,12 @@ function showWeather(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.condition.description;
+  document
+    .querySelector("#today-icon")
+    .setAttribute(
+      "src",
+      `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+    );
   document.querySelector("#current-date").innerHTML = formatDate(
     response.data.time * 1000
   );
