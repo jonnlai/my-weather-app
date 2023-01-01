@@ -22,7 +22,7 @@ a:hover {
   max-width: 800px;
   display: block;
   margin: 100px auto;
-  padding: 60px 40px;
+  padding: 70px 50px;
   font-family: "Mali", cursive;
   background-image: url("../images/cloud-background.jpg");
   background-size: 800px;
@@ -59,9 +59,13 @@ a:hover {
   top: -20px;
   left: -10px;
 }
-
+.temp-scale .active {
+  color: #000;
+  text-decoration: none;
+  cursor: default;
+}
 .future-weather {
-  padding: 50px 0 0 0;
+  padding: 70px 0 0 0;
 }
 .footer {
   font-size: 12px;
