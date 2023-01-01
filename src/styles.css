@@ -3,7 +3,9 @@ h1 {
   font-weight: bold;
 }
 h2 {
-  font-size: 20px;
+  font-size: 16px;
+  position: relative;
+  bottom: -6px;
 }
 a {
   text-decoration: none;
@@ -29,9 +31,11 @@ a:hover {
   background-size: 800px;
 }
 
-.forecast {
-  padding: 30px 0;
+.weather-data {
+  position: relative;
+  bottom: -30px;
 }
+
 .today-symbol {
   width: 120px;
   display: block;
