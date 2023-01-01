@@ -1,11 +1,11 @@
 h1 {
-  font-size: 50px;
+  font-size: 40px;
   font-weight: bold;
 }
 h2 {
   font-size: 16px;
   position: relative;
-  bottom: -6px;
+  bottom: -16px;
 }
 a {
   text-decoration: none;
@@ -13,19 +13,16 @@ a {
 a:hover {
   text-decoration: underline;
 }
-
 .current-city {
-  font-size: 10px;
-  padding: 10px;
+  font-size: 11px;
 }
-
 .weather-app {
   border: 2px solid #000;
   border-radius: 20px;
   max-width: 800px;
   display: block;
   margin: 100px auto;
-  padding: 40px;
+  padding: 60px 40px;
   font-family: "Mali", cursive;
   background-image: url("../images/cloud-background.jpg");
   background-size: 800px;
@@ -33,7 +30,7 @@ a:hover {
 
 .weather-data {
   position: relative;
-  bottom: -30px;
+  bottom: -34px;
 }
 
 .today-symbol {

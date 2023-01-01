@@ -32,7 +32,6 @@ function formatDate(timestamp) {
 }
 
 function showWeather(response) {
-  console.log(response);
   document.querySelector("#city-name").innerHTML = response.data.city;
   document.querySelector("#today-temperature").innerHTML = Math.round(
     response.data.temperature.current
