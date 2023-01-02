@@ -1,25 +1,36 @@
 function formatDate(timestamp) {
   let now = new Date(timestamp);
 
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
 
   let day = days[now.getDay()];
 
   let date = now.getDate();
+  if (date <= 9) {
+    date = "0" + date;
+  }
 
   let months = [
-    "Jan",
-    "Feb",
+    "January",
+    "February",
     "March",
-    "Apr",
+    "April",
     "May",
     "June",
     "July",
-    "Aug",
-    "Sept",
-    "Oct",
-    "Nov",
-    "Dec",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
   ];
   let month = months[now.getMonth()];
 
@@ -28,7 +39,7 @@ function formatDate(timestamp) {
   minutes = minutes <= 9 ? "0" + minutes : minutes;
   hour = hour <= 9 ? "0" + hour : hour;
 
-  return `${day} ${date} ${month} ${hour}:${minutes}`;
+  return `${day} ${date} ${month} at ${hour}:${minutes}`;
 }
 
 function showWeather(response) {
