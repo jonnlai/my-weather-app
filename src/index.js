@@ -64,6 +64,42 @@ function showWeather(response) {
   document.querySelector("#current-date").innerHTML = formatDate(
     response.data.time * 1000
   );
+  if (response.data.condition.description === "clear sky") {
+    document.body.style.backgroundImage =
+      "url('images/clear-sky-background.jpg')";
+  } else if (
+    response.data.condition.description === "few clouds" ||
+    response.data.condition.description === "scattered clouds" ||
+    response.data.condition.description === "broken clouds" ||
+    response.data.condition.description === "overcast clouds"
+  ) {
+    document.body.style.backgroundImage = "url('images/clouds-background.jpg')";
+  } else if (
+    response.data.condition.description === "rain" ||
+    response.data.condition.description === "rain shower" ||
+    response.data.condition.description === "light rain" ||
+    response.data.condition.description === "moderate rain" ||
+    response.data.condition.description === "light intensity drizzle"
+  ) {
+    document.body.style.backgroundImage = "url('images/rainy-background.jpg')";
+  } else if (response.data.condition.description === "thunderstorm") {
+    document.body.style.backgroundImage = "url('images/storm-background.jpg')";
+  } else if (
+    response.data.condition.description === "mist" ||
+    response.data.condition.description === "haze" ||
+    response.data.condition.description === "smoke"
+  ) {
+    document.body.style.backgroundImage = "url('images/mist-background.jpg')";
+  } else if (
+    response.data.condition.description === "snow" ||
+    response.data.condition.description === "heavy snow" ||
+    response.data.condition.description === "light snow"
+  ) {
+    document.body.style.backgroundImage = "url('images/snow-background.jpg')";
+  } else {
+    document.body.style.backgroundImage =
+      "url('images/neutral-background.jpg')";
+  }
 }
 
 function searchCity(city) {
