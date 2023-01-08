@@ -42,6 +42,31 @@ function formatDate(timestamp) {
   return `${day} ${date} ${month} at ${hour}:${minutes}`;
 }
 
+function displayForecast() {
+  let weatherForecast = document.querySelector("#forecast");
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  let forecastHTML = `<div class="row text-center">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+   <div class="col-2">
+     <div class="card">
+       <h5 class="card-header">${day}</h5>
+       <div class="card-body">
+         <h5 class="card-title">
+           <img src="images/cloud.png" alt="cloud" class="weather-symbol" />
+         </h5>
+         <p class="card-text">7°C</p>
+       </div>
+     </div>
+     </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  weatherForecast.innerHTML = forecastHTML;
+}
+
 function showWeather(response) {
   document.querySelector("#city-name").innerHTML = response.data.city;
   document.querySelector("#today-temperature").innerHTML = Math.round(
@@ -165,3 +190,4 @@ let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", showCelsius);
 
 searchCity("London");
+displayForecast();
