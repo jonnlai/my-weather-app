@@ -79,7 +79,9 @@ function showWeather(response) {
     response.data.condition.description === "rain shower" ||
     response.data.condition.description === "light rain" ||
     response.data.condition.description === "moderate rain" ||
-    response.data.condition.description === "light intensity drizzle"
+    response.data.condition.description === "light intensity drizzle" ||
+    response.data.condition.description === "heavy intensity rain" ||
+    response.data.condition.description === "shower rain"
   ) {
     document.body.style.backgroundImage = "url('images/rainy-background.jpg')";
   } else if (response.data.condition.description === "thunderstorm") {

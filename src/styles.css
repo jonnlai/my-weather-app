@@ -28,7 +28,7 @@ body {
   max-width: 900px;
   display: block;
   margin: 100px auto;
-  padding: 70px 60px 40px 60px;
+  padding: 40px 60px 40px 60px;
   font-family: "Mali", cursive;
   background-color: rgba(255, 255, 255, 0.7);
 }
@@ -38,12 +38,6 @@ body {
 .weather-data {
   position: relative;
   bottom: -30px;
-}
-
-.current-date {
-  text-align: center;
-  margin: 30px 0 0 0;
-  font-weight: bold;
 }
 
 .today-symbol {
@@ -81,11 +75,14 @@ body {
 .future-weather {
   padding: 70px 0 0 0;
 }
+.current-date {
+  text-align: center;
+  margin: 30px 0 10px 0;
+  font-weight: bold;
+}
 .footer {
   font-size: 14px;
   text-align: center;
   font-weight: bold;
   font-family: "Mali", cursive;
-  position: relative;
-  top: -70px;
 }
