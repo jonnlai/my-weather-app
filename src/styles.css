@@ -66,12 +66,7 @@ body {
   top: -12px;
   left: -10px;
 }
-.temp-scale .active {
-  color: #000;
-  text-decoration: none;
-  cursor: default;
-  font-size: 25px;
-}
+
 .future-weather {
   padding: 70px 0 0 0;
 }
