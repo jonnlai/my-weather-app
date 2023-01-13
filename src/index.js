@@ -42,29 +42,49 @@ function formatDate(timestamp) {
   return `${day} ${date} ${month} at ${hour}:${minutes}`;
 }
 
-function displayForecast() {
-  let weatherForecast = document.querySelector("#forecast");
-  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row text-center">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index > 0 && index < 7) {
+      forecastHTML =
+        forecastHTML +
+        `
    <div class="col-2">
      <div class="card">
-       <h5 class="card-header">${day}</h5>
+       <h5 class="card-header">${formatDay(forecastDay.time)}</h5>
        <div class="card-body">
          <h5 class="card-title">
-           <img src="images/cloud.png" alt="cloud" class="weather-symbol" />
+           <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+             forecastDay.condition.icon
+           }.png" alt="weather icon" class="weather-symbol" />
          </h5>
-         <p class="card-text">7°C</p>
+         <p class="card-text"> ${Math.round(
+           forecastDay.temperature.maximum
+         )}°C/${Math.round(forecastDay.temperature.minimum)}°C</p>
        </div>
      </div>
      </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
-  weatherForecast.innerHTML = forecastHTML;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(city) {
+  let apiKey = "15353af8tb5a96838601b6762eoe80e4";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function showWeather(response) {
@@ -106,7 +126,8 @@ function showWeather(response) {
     response.data.condition.description === "moderate rain" ||
     response.data.condition.description === "light intensity drizzle" ||
     response.data.condition.description === "heavy intensity rain" ||
-    response.data.condition.description === "shower rain"
+    response.data.condition.description === "shower rain" ||
+    response.data.condition.description === "light intensity shower rain"
   ) {
     document.body.style.backgroundImage = "url('images/rainy-background.jpg')";
   } else if (response.data.condition.description === "thunderstorm") {
@@ -127,6 +148,7 @@ function showWeather(response) {
     document.body.style.backgroundImage =
       "url('images/neutral-background.jpg')";
   }
+  getForecast(response.data.city);
 }
 
 function searchCity(city) {
@@ -190,4 +212,3 @@ let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", showCelsius);
 
 searchCity("London");
-displayForecast();
