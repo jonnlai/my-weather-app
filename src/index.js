@@ -66,7 +66,7 @@ function displayForecast(response) {
          <h5 class="card-title">
            <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
              forecastDay.condition.icon
-           }.png" alt="weather icon" class="weather-symbol" />
+           }.png" alt="weather icon" class="future-weather-icon" />
          </h5>
          <p class="card-text"> ${Math.round(
            forecastDay.temperature.maximum

@@ -1,3 +1,6 @@
+body {
+  background-size: cover;
+}
 h1 {
   font-size: 50px;
   font-weight: bold;
@@ -15,13 +18,12 @@ a:hover {
   text-decoration: rgb(2, 2, 91);
 }
 
-body {
-  background-size: cover;
-}
 .search-engine {
   margin: 0 0 30px 0;
 }
-
+.current-city-button {
+  font-size: 11px;
+}
 .weather-app {
   border: 2px solid #000;
   border-radius: 20px;
@@ -32,15 +34,13 @@ body {
   font-family: "Mali", cursive;
   background-color: rgba(255, 255, 255, 0.7);
 }
-.current-city-button {
-  font-size: 11px;
-}
+
 .weather-data {
   position: relative;
   bottom: -30px;
 }
 
-.today-symbol {
+.today-icon {
   width: 120px;
   display: block;
   margin: 0 auto;
@@ -54,12 +54,6 @@ body {
   text-transform: capitalize;
 }
 
-.weather-symbol {
-  width: 40px;
-  display: block;
-  margin: 0 auto;
-}
-
 .temp-scale {
   font-size: 20px;
   position: relative;
@@ -70,13 +64,18 @@ body {
 .future-weather {
   padding: 70px 0 0 0;
 }
-
+.future-weather-icon {
+  width: 40px;
+  display: block;
+  margin: 0 auto;
+}
 .card-text {
   font-size: 14px;
   font-weight: bold;
 }
 .current-date {
   text-align: center;
+  font-size: 16px;
   margin: 30px 0 10px 0;
   font-weight: bold;
 }
@@ -84,5 +83,4 @@ body {
   font-size: 14px;
   text-align: center;
   font-weight: bold;
-  font-family: "Mali", cursive;
 }
