@@ -61,10 +61,10 @@ body {
 }
 
 .temp-scale {
-  font-size: 15px;
+  font-size: 20px;
   position: relative;
-  top: -12px;
-  left: -10px;
+  top: -18px;
+  left: -15px;
 }
 
 .future-weather {
@@ -72,7 +72,7 @@ body {
 }
 
 .card-text {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
 }
 .current-date {

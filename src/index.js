@@ -70,7 +70,7 @@ function displayForecast(response) {
          </h5>
          <p class="card-text"> ${Math.round(
            forecastDay.temperature.maximum
-         )}°C/${Math.round(forecastDay.temperature.minimum)}°C</p>
+         )}° | ${Math.round(forecastDay.temperature.minimum)}°</p>
        </div>
      </div>
      </div>`;
@@ -129,7 +129,7 @@ function showWeather(response) {
     response.data.condition.description === "shower rain" ||
     response.data.condition.description === "light intensity shower rain"
   ) {
-    document.body.style.backgroundImage = "url('images/rainy-background.jpg')";
+    document.body.style.backgroundImage = "url('images/rain-background.jpg')";
   } else if (response.data.condition.description === "thunderstorm") {
     document.body.style.backgroundImage = "url('images/storm-background.jpg')";
   } else if (
